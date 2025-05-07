@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do App</title>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <form action="{{ url_for('add') }}" method="post">
+        <input type="text" name="task" placeholder="Nova tarefa" required>
+        <button type="submit">Adicionar</button>
+    </form>
+    <ul>
+        {% for idx, task in enumerate(tasks) %}
+            <li>
+                {% if task.done %}
+                    <s>{{ task.task }}</s>
+                {% else %}
+                    {{ task.task }}
+                    <a href="{{ url_for('complete', task_id=idx) }}">[Concluir]</a>
+                {% endif %}
+                <a href="{{ url_for('delete', task_id=idx) }}">[Excluir]</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
