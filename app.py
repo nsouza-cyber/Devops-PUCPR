@@ -1,3 +1,6 @@
+# Aplicativo To-Do simples usando Flask para gerenciar tarefas
+# Este aplicativo permite adicionar, marcar como concluída e excluir tarefas.
+
 from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
