@@ -10,7 +10,8 @@
         <button type="submit">Adicionar</button>
     </form>
     <ul>
-        {% for idx, task in enumerate(tasks) %}
+        {% for task in tasks %}
+            {% set idx = loop.index0 %}
             <li>
                 {% if task.done %}
                     <s>{{ task.task }}</s>
